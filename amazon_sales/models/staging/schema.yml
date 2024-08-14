@@ -1,0 +1,41 @@
+models:
+  - name: stg_amazon_sales
+    description: "Cleaned and transformed Amazon sales data."
+    columns:
+      - name: SKU
+        description: "Stock Keeping Unit, unique identifier for products."
+        tests:
+          - not_null
+          - unique
+      - name: Category
+        description: "Type of product."
+        tests:
+          - not_null
+      - name: Qty
+        description: "Quantity of the product sold."
+        tests:
+          - not_null
+      - name: Amount
+        description: "Amount of the sale after cleaning."
+        tests:
+          - not_null
+      - name: Status
+        description: "Standardized status of the sale (e.g., Shipped, Cancelled, Returned)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Pending', 'Shipped', 'Cancelled', 'Returned']
+      - name: Fulfilment
+        description: "Indicates whether the order was fulfilled by Amazon or Merchant."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Amazon', 'Merchant']
+      - name: Date
+        description: "Date of the sale."
+        tests:
+          - not_null
+      - name: SHIP_STATE
+        description: "The state where the product was shipped."
+      - name: COURIER_STATUS
+        description: "Status of the courier (e.g., Shipped, Delivered)."

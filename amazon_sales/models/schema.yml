@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: google_sheets
+    database: PC_FIVETRAN_DB
+    schema: GOOGLE_SHEETS
+    tables:
+      - name: AMAZON_SALES
+        description: "This table contains sales data from Google Sheets."
+        columns:
+          - name: CATEGORY
+            description: "Category of the product."
+            tests:
+              - not_null
+          - name: COURIER_STATUS
+            description: "Status of the courier."
+            tests:
+              - not_null
+          - name: CURRENCY
+            description: "Currency used in the transaction."
+            tests:
+              - not_null
+          - name: DATE
+            description: "Date of the order."
+            tests:
+              - not_null
+          - name: FULFILLED_BY
+            description: "Entity that fulfilled the order."
+            tests:
+              - not_null
+          - name: FULFILMENT
+            description: "Fulfillment method used."
+            tests:
+              - not_null
+          - name: INDEX
+            description: "Index of the row."
+            tests:
+              - not_null
+          - name: ORDER_ID
+            description: "Unique identifier for the order."
+            tests:
+              - not_null
+              - unique
+          - name: PROMOTION_IDS
+            description: "Promotion IDs applied to the order."
+          - name: QTY
+            description: "Quantity of items ordered."
+            tests:
+              - not_null
+          - name: SALES_CHANNEL
+            description: "Sales channel used for the order."
+            tests:
+              - not_null
+          - name: SHIP_CITY
+            description: "City where the order is shipped."
+            tests:
+              - not_null
+          - name: SHIP_COUNTRY
+            description: "Country where the order is shipped."
+            tests:
+              - not_null
+          - name: SHIP_POSTAL_CODE
+            description: "Postal code of the shipping address."
+          - name: SHIP_SERVICE_LEVEL
+            description: "Service level for shipping."
+            tests:
+              - not_null
+          - name: SHIP_STATE
+            description: "State where the order is shipped."
+            tests:
+              - not_null
+          - name: SIZE
+            description: "Size of the product."
+          - name: SKU
+            description: "Stock Keeping Unit identifier."
+            tests:
+              - not_null
+          - name: STATUS
+            description: "Status of the order."
+            tests:
+              - not_null
+          - name: STYLE
+            description: "Style of the product."
+          - name: _FIVETRAN_SYNCED
+            description: "Timestamp when the row was last synced by Fivetran."
+          - name: _ROW
+            description: "Row number in the source data."
+            tests:
+              - not_null1v
